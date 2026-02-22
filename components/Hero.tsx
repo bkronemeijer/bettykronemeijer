@@ -3,7 +3,7 @@ import P5Hero from "./P5Hero";
 
 export default function Hero() {
   return (
-    <section className="relative w-full" style={{ height: "85vh" }}>
+    <section className="relative w-full" style={{ height: "90vh" }}>
       <P5Hero />
       <div className="absolute inset-0 flex flex-col justify-end pb-16 px-10 pointer-events-none">
         <p
@@ -13,7 +13,7 @@ export default function Hero() {
             fontFamily: "var(--font-body)",
           }}
         >
-          Designer & Developer
+          Creative Developer
         </p>
         <h1
           className="text-6xl md:text-8xl leading-none"
