@@ -1,41 +1,31 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import Image from "next/image";
 
 const projects = [
   {
-    name: "Bloom Atlas",
-    year: "2024",
-    tag: "Web Design",
-    imageSrc: "/images/project-bloom.jpg",
-    imageAlt: "Bloom Atlas project",
+    name: "Boeing Safety Experience",
+    year: "Ongoing",
+    tag: "Data Visualisation, Knowledge Graph",
+    imageSrc: "/images/timeline.webp",
+    imageAlt: "Boeing Safety Experience project",
+    projectUrl: "https://www.boeing.com/safety/safetyexperience",
   },
   {
-    name: "Meridian Type",
-    year: "2024",
-    tag: "Typography",
-    imageSrc: "/images/project-meridian.jpg",
-    imageAlt: "Meridian Type project",
+    name: "Pollen Passport",
+    year: "2025",
+    tag: "Data Visualisation, Campaign",
+    imageSrc: "/images/pollenpassport.webp",
+    imageAlt: "Pollen Passport project",
+    projectUrl: "https://www.cleverfranke.com/project/allevia-pollen-passport",
   },
   {
-    name: "Solstice OS",
-    year: "2023",
-    tag: "UI / UX",
-    imageSrc: "/images/project-solstice.jpg",
-    imageAlt: "Solstice OS project",
-  },
-  {
-    name: "Verdant Index",
-    year: "2023",
-    tag: "Data Viz",
-    imageSrc: "/images/project-verdant.jpg",
-    imageAlt: "Verdant Index project",
-  },
-  {
-    name: "Carmine Studio",
-    year: "2022",
-    tag: "Branding",
-    imageSrc: "/images/project-carmine.jpg",
-    imageAlt: "Carmine Studio project",
+    name: "Globe Guessr",
+    year: "Ongoing",
+    tag: "ThreeJS, Geography Game",
+    imageSrc: "/images/globeguessr.webp",
+    imageAlt: "Globe Guessr project",
+    projectUrl: "https://github.com/bkronemeijer/globe-guessr",
   },
 ];
 

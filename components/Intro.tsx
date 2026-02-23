@@ -25,7 +25,7 @@ export default function Mission() {
     <section id="mission" title="Our Mission">
       <p
         ref={textRef}
-        className={`max-w-4/5 text-2xl leading-relaxed text-green-light transition-all duration-700 2xl:text-4xl p-8 ${
+        className={`max-w-4/5 text-lg lg:text-2xl leading-relaxed text-green-light transition-all duration-700 2xl:text-4xl p-8 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
