@@ -71,10 +71,10 @@ const Highlight = ({
   isVisible: boolean;
 }) => (
   <span
-    className="inline-block rounded px-1 font-semibold text-green-dark transition-all duration-500 ease-out"
+    className="inline-block rounded px-1 font-semibold text-green-light transition-all duration-500 ease-out"
     style={{
       backgroundImage:
-        "linear-gradient(to right, rgb(15, 142, 56, 0.15), rgb(15, 142, 56, 0.15))",
+        "linear-gradient(to right, rgb(15, 142, 56, 0.75), rgb(15, 142, 56, 0.75))",
       backgroundPosition: "0% center",
       backgroundSize: isVisible ? "100% 100%" : "0% 100%",
       backgroundRepeat: "no-repeat",

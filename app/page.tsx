@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
+import ScrollZoomHero from "@/components/ZoomHero";
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
         overflow: "none",
       }}
     >
-      <Hero />
-
-      <Intro />
+      <ScrollZoomHero>
+        <Intro />
+      </ScrollZoomHero>
 
       <div
         className="w-full h-px"
