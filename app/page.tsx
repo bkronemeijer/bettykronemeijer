@@ -48,7 +48,7 @@ export default function Home() {
         <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#bad7bf]">
           {/* Zooming hero */}
           <div
-            className="absolute inset-0 will-change-transform transition-opacity duration-75 ease-linear"
+            className="absolute  inset-0 will-change-transform transition-opacity duration-75 ease-linear"
             style={{
               transform: `scale(${scale})`,
               transformOrigin: "50% 56%",

@@ -59,6 +59,10 @@ export default function P5Sketch() {
           s.background(186, 215, 191);
           flock.run();
         };
+
+        s.mouseDragged = () => {
+          flock.addBoid(new Boid(s, s.mouseX, s.mouseY));
+        };
       });
     });
 
@@ -72,7 +76,11 @@ export default function P5Sketch() {
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: "100%", background: "#bad7bf" }}
+      style={{
+        width: "100%",
+        height: "100%",
+        background: "#bad7bf",
+      }}
     />
   );
 }
