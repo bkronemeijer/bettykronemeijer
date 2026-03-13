@@ -1,0 +1,78 @@
+"use client";
+
+import { Boid } from "@/p5/Boid";
+import { Flock } from "@/p5/Flock";
+import { useEffect, useRef } from "react";
+
+export default function P5Sketch() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    if (mountedRef.current) return;
+    mountedRef.current = true;
+
+    let p5Instance: any = null;
+    let flock: Flock = new Flock();
+
+    import("p5").then((mod) => {
+      const p5 = mod.default;
+
+      p5Instance = new p5((s: any) => {
+        // ── Gradient animation state ──────────────────────────────────────
+        let grainCanvas: HTMLCanvasElement | null = null;
+        let grainCtx: CanvasRenderingContext2D | null = null;
+
+        // ── Build static grain texture once ──────────────────────────────
+        const buildGrain = (W: number, H: number) => {
+          grainCanvas = document.createElement("canvas");
+          grainCanvas.width = W;
+          grainCanvas.height = H;
+          grainCtx = grainCanvas.getContext("2d")!;
+          const imgData = grainCtx.createImageData(W, H);
+          for (let i = 0; i < imgData.data.length; i += 4) {
+            const v = Math.random() * 255;
+            imgData.data[i] = v;
+            imgData.data[i + 1] = v;
+            imgData.data[i + 2] = v;
+            imgData.data[i + 3] = Math.random() * 28 + 4;
+          }
+          grainCtx.putImageData(imgData, 0, 0);
+        };
+
+        // ── Setup ─────────────────────────────────────────────────────────
+        s.setup = () => {
+          if (!containerRef.current) return;
+          const W = containerRef.current.offsetWidth;
+          const H = containerRef.current.offsetHeight;
+          const cvs = s.createCanvas(W, H);
+          cvs.parent(containerRef.current);
+
+          for (let i = 0; i < 100; i++) {
+            flock.addBoid(new Boid(s, s.width / 2, s.height / 2));
+          }
+          buildGrain(W, H);
+        };
+
+        // ── Draw ──────────────────────────────────────────────────────────
+        s.draw = () => {
+          s.background(186, 215, 191);
+          flock.run();
+        };
+      });
+    });
+
+    return () => {
+      p5Instance?.remove();
+      if (containerRef.current) containerRef.current.innerHTML = "";
+      mountedRef.current = false;
+    };
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{ width: "100%", height: "100%", background: "#bad7bf" }}
+    />
+  );
+}

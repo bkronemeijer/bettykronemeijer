@@ -1,0 +1,53 @@
+import React from "react";
+
+export default function RotatingBadge() {
+  const text = "CREATIVE FRONTEND DEVELOPER · ";
+  const radius = 52;
+  const chars = text.split("");
+  const angleStep = 360 / chars.length;
+
+  return (
+    <div
+      className="absolute top-1/2 right-[clamp(2rem,6vw,7rem)] -translate-y-1/2 pointer-events-none animate-spin-slow"
+      style={{
+        width: radius * 2 + 40,
+        height: radius * 2 + 40,
+      }}
+    >
+      <svg
+        viewBox={`0 0 ${radius * 2 + 40} ${radius * 2 + 40}`}
+        className="w-full h-full"
+      >
+        {chars.map((ch, i) => {
+          const angle = (angleStep * i - 90) * (Math.PI / 180);
+          const x = radius + 20 + radius * Math.cos(angle);
+          const y = radius + 20 + radius * Math.sin(angle);
+          const rot = angleStep * i;
+
+          return (
+            <text
+              key={i}
+              x={x}
+              y={y}
+              textAnchor="middle"
+              dominantBaseline="middle"
+              transform={`rotate(${rot}, ${x}, ${y})`}
+              className="font-mono text-[9px] font-normal tracking-[0.05em] fill-white/85"
+            >
+              {ch}
+            </text>
+          );
+        })}
+
+        <circle
+          cx={radius + 20}
+          cy={radius + 20}
+          r={18}
+          fill="none"
+          stroke="rgba(93, 107, 95, 0.35)"
+          strokeWidth="1"
+        />
+      </svg>
+    </div>
+  );
+}
