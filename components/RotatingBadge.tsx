@@ -8,7 +8,7 @@ export default function RotatingBadge() {
 
   return (
     <div
-      className="absolute top-1/2 right-[clamp(2rem,6vw,7rem)] -translate-y-1/2 pointer-events-none animate-spin-slow"
+      className="absolute top-1/2 right-[clamp(2rem,6vw,7rem)] -translate-y-1/2 pointer-events-none"
       style={{
         width: radius * 2 + 40,
         height: radius * 2 + 40,
@@ -16,7 +16,7 @@ export default function RotatingBadge() {
     >
       <svg
         viewBox={`0 0 ${radius * 2 + 40} ${radius * 2 + 40}`}
-        className="w-full h-full"
+        className="w-full h-full animate-spin-badge"
       >
         {chars.map((ch, i) => {
           const angle = (angleStep * i - 90) * (Math.PI / 180);

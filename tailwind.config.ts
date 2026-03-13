@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        "spin-slow": "spin 18s linear infinite",
+        "spin-badge": "spinBadge 18s linear infinite",
       },
       colors: {
         pink: "#ffa3ca",
@@ -22,6 +22,12 @@ const config: Config = {
         display: ["var(--font-display)"],
         body: ["var(--font-body)"],
         mersad: ["Mersad", "sans-serif"],
+      },
+      keyframes: {
+        spinBadge: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
       },
     },
   },
