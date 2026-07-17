@@ -21,30 +21,31 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className="card-scene flex-shrink-0 cursor-pointer"
+      className="card-scene flex-shrink-0 cursor-pointer rounded-xs"
       style={{ aspectRatio: "1/1", width: "clamp(220px, 28vw, 380px)" }}
     >
       <a
         href={projectUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="absolute inset-0 z-10"
+        className="absolute inset-0 z-10 rounded-xs"
       >
-        <div className="card-inner w-full h-full">
+        <div className="card-inner w-full h-full rounded-xs">
           {/* Front */}
           <div
-            className="card-face flex flex-col justify-between p-6 border"
+            className="card-face flex flex-col justify-between p-6 rounded-xs"
             style={{
-              background: "var(--cream)",
-              borderColor: "var(--green-dark)",
+              background: "rgba(255, 255, 255, 0.42)",
+              borderRadius: "16px",
+              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+              backdropFilter: "blur(10.2px)",
             }}
           >
             <div>
               <span
-                className="text-xs tracking-widest uppercase"
+                className="text-xs tracking-widest uppercase text-orange-light"
                 style={{
-                  color: "var(--green-light)",
-                  fontFamily: "var(--font-body)",
+                  fontFamily: "var(--font-mono)",
                 }}
               >
                 {tag}
@@ -52,30 +53,31 @@ export default function ProjectCard({
             </div>
             <div>
               <h3
-                className="text-2xl leading-tight mb-2"
+                className="text-2xl leading-tight mb-2 text-white"
                 style={{
-                  fontFamily: "var(--font-display)",
-                  color: "var(--green-dark)",
+                  fontFamily: "var(--font-redaction)",
                 }}
               >
                 {name}
               </h3>
               <span
-                className="text-xs"
-                style={{ color: "var(--pink)", fontFamily: "var(--font-body)" }}
+                className="text-xs text-orange"
+                style={{
+                  fontFamily: "var(--font-body)",
+                }}
               >
                 {year}
               </span>
             </div>
-            <div
+            {/* <div
               className="absolute top-4 right-4 w-8 h-8 rounded-full"
               style={{ background: "var(--pink)", opacity: 0.4 }}
-            />
+            /> */}
           </div>
 
           {/* Back */}
-          <div className="card-back card-face overflow-hidden">
-            <div className="relative w-full h-full">
+          <div className="card-back card-face overflow-hidden rounded-xs">
+            <div className="relative w-full h-full rounded-xs">
               <Image
                 src={imageSrc}
                 alt={imageAlt}
@@ -83,16 +85,15 @@ export default function ProjectCard({
                 className="object-cover"
               />
               <div
-                className="absolute inset-0 flex items-end p-4"
+                className="absolute inset-0 flex items-end p-4 rounded-xs"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(40,93,63,0.85) 0%, transparent 60%)",
+                    "linear-gradient(to top, rgba(0, 0, 256, 1.0) 0%, transparent 60%)",
                 }}
               >
                 <span
-                  className="text-sm"
+                  className="text-sm text-white"
                   style={{
-                    color: "var(--cream)",
                     fontFamily: "var(--font-body)",
                   }}
                 >

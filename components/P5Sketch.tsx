@@ -1,10 +1,13 @@
 "use client";
 
 import { Boid } from "@/p5/Boid";
+import { Circle } from "@/p5/Circle";
 import { Flock } from "@/p5/Flock";
 import { useEffect, useRef } from "react";
 
 export default function P5Sketch() {
+  let balls: any[] = [];
+  let num = 10;
   const containerRef = useRef<HTMLDivElement>(null);
   const mountedRef = useRef(false);
 
@@ -51,12 +54,24 @@ export default function P5Sketch() {
           for (let i = 0; i < 100; i++) {
             flock.addBoid(new Boid(s, s.width / 2, s.height / 2));
           }
+
+          for (let i = 0; i < num; i++) {
+            let x = s.random(s.width);
+            let y = s.random(s.height);
+            let r = s.random(200, 600);
+            balls[i] = new Circle(s, x, y, r, W, H);
+          }
+
           buildGrain(W, H);
         };
 
         // ── Draw ──────────────────────────────────────────────────────────
         s.draw = () => {
-          s.background(186, 215, 191);
+          s.background(0, 0, 256);
+          // for (let i = 0; i < num; i++) {
+          //   balls[i].update();
+          //   balls[i].display();
+          // }
           flock.run();
         };
 
@@ -79,7 +94,7 @@ export default function P5Sketch() {
       style={{
         width: "100%",
         height: "100%",
-        background: "#bad7bf",
+        background: "#00F",
       }}
     />
   );

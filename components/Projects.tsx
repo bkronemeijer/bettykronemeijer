@@ -4,8 +4,16 @@ import Image from "next/image";
 
 const projects = [
   {
+    name: "Current AI - AI Potluck",
+    year: "2026 - Ongoing",
+    tag: "Data Visualisation, Open Source AI",
+    imageSrc: "/images/aipotluck.png",
+    imageAlt: "Current AI project",
+    projectUrl: "https://www.aipotluck.org/",
+  },
+  {
     name: "Boeing Safety Experience",
-    year: "Ongoing",
+    year: "2024 - Ongoing",
     tag: "Data Visualisation, Knowledge Graph",
     imageSrc: "/images/timeline.webp",
     imageAlt: "Boeing Safety Experience project",
@@ -34,18 +42,14 @@ export default function Projects() {
     <section id="work" className="py-16">
       <div className="px-10 mb-8 flex items-baseline gap-4">
         <h2
-          className="text-xs tracking-widest uppercase"
+          className="text-xs tracking-widest uppercase text-orange"
           style={{
-            color: "var(--green-light)",
             fontFamily: "var(--font-body)",
           }}
         >
           Selected Work
         </h2>
-        <div
-          className="flex-1 h-px"
-          style={{ background: "var(--green-dark)", opacity: 0.12 }}
-        />
+        <div className="flex-1 h-px bg-orange opacity-[0.12]" />
       </div>
 
       <div

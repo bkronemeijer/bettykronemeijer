@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function RotatingBadge() {
-  const text = "CREATIVE FRONTEND DEVELOPER · ";
+  const text = "SENIOR FRONTEND DEVELOPER · ";
   const radius = 52;
   const chars = text.split("");
   const angleStep = 360 / chars.length;
@@ -44,7 +44,7 @@ export default function RotatingBadge() {
           cy={radius + 20}
           r={18}
           fill="none"
-          stroke="rgba(93, 107, 95, 0.35)"
+          stroke="rgba(255, 179, 71, 1.0)"
           strokeWidth="1"
         />
       </svg>

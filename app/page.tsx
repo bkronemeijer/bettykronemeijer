@@ -1,5 +1,6 @@
 "use client";
 
+import BlobBackground from "@/components/BlobBackground";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
@@ -45,7 +46,7 @@ export default function Home() {
   return (
     <main>
       <div className="relative h-[350vh]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#bad7bf]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#00F]">
           {/* Zooming hero */}
           <div
             className="absolute  inset-0 will-change-transform transition-opacity duration-75 ease-linear"
@@ -64,7 +65,7 @@ export default function Home() {
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
               <div className="font-mersad font-bold text-[clamp(3rem,9.5vw,10vw)] leading-[1] text-white text-center tracking-[0.01em] select-none">
                 <div>BETTY</div>
-                <div className="text-[#5D6B5F]">KRONEMEIJER</div>
+                <div className="text-[#ffb347]">KRONEMEIJER</div>
               </div>
             </div>
 
@@ -79,6 +80,7 @@ export default function Home() {
               pointerEvents: contentVisible.current ? "auto" : "none",
             }}
           >
+            <BlobBackground />
             <Intro />
             <Projects />
             <Footer />
