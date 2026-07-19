@@ -39,7 +39,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="work" className="py-16">
+    <section id="work" className="lg:py-16">
       <div className="px-10 mb-8 flex items-baseline gap-4">
         <h2
           className="text-xs tracking-widest uppercase text-orange"
