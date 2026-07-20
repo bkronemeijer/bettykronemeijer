@@ -40,7 +40,7 @@ const projects = [
 export default function Projects() {
   return (
     <section id="work" className="lg:py-16">
-      <div className="px-10 mb-8 flex items-baseline gap-4">
+      <div className="p-5 md:px-8 md:mb-8 flex items-baseline gap-4">
         <h2
           className="text-xs tracking-widest uppercase text-orange"
           style={{
@@ -53,7 +53,7 @@ export default function Projects() {
       </div>
 
       <div
-        className="flex gap-4 overflow-x-auto px-10 pb-4"
+        className="flex gap-4 overflow-x-auto p-5 md:px-8 pb-4"
         style={{ scrollbarWidth: "none" }}
       >
         {projects.map((project) => (

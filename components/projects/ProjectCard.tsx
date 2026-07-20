@@ -46,7 +46,7 @@ export default function ProjectCard({
               <ProjectTags tag={tag} />
             </div>
             <div>
-              <h3 className="text-2xl leading-tight mb-2 text-white font-medium">
+              <h3 className="text-xl md:text-2xl leading-tight mb-2 text-white font-medium">
                 {name}
               </h3>
               <span className="text-xs text-orange font-mono">{year}</span>

@@ -25,7 +25,7 @@ export default function Mission() {
     <section>
       <p
         ref={textRef}
-        className={`max-w-[85%] lg:max-w-[75%] text-xs md:text-xl lg:text-2xl leading-relaxed text-white transition-all duration-700 2xl:text-4xl p-8 ${
+        className={`max-w-[85%] lg:max-w-[75%] text-sm md:text-xl lg:text-2xl leading-relaxed text-white transition-all duration-700 2xl:text-4xl p-5 md:p-8 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
