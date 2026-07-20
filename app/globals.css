@@ -96,28 +96,6 @@ layer(base);
   }
 }
 
-@utility scrollbar {
-  &::-webkit-scrollbar {
-    width: 20px;
-    height: 20px;
-  }
-
-  &::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: #f7f4ed;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #e0cbcb;
-    border-radius: 100vh;
-    border: 3px solid #f6f7ed;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #c0a0b9;
-  }
-}
-
 @layer utilities {
   :root {
     --pink: #ffa3ca;
@@ -142,7 +120,7 @@ layer(base);
   }
 
   body {
-    background-color: var(--cream);
+    background-color: var(--primary-blue);
     color: var(--primary-blue);
     font-family: var(--font-body);
     font-weight: 300;
