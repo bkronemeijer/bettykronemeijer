@@ -3,7 +3,7 @@
 import BlobBackground from "@/components/BlobBackground";
 import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
-import Projects from "@/components/Projects";
+import Projects from "@/components/projects/Projects";
 import RotatingBadge from "@/components/RotatingBadge";
 import { getIsChrome } from "@/utils/getIsChrome";
 import { getNearestRedactionFamily } from "@/utils/getRedactionFamily";

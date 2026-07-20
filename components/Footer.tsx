@@ -2,10 +2,26 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="px-10 py-12 mt-16">
-      <p className="text-xs text-orange-light">
+    <footer className="px-10 py-12 mt-16 flex justify-between text-xs text-orange-light">
+      <p>
         © {new Date().getFullYear()} Betty Kronemeijer — Built with Next.js &
         Tailwind
+      </p>
+      <p className="flex gap-4">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/bkronemeijer"
+        >
+          GitHub
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/betty-kronemeijer-198758155/"
+        >
+          LinkedIn
+        </a>
       </p>
     </footer>
   );

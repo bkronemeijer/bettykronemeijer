@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import ProjectTags from "./ProjectTags";
 
 interface ProjectCardProps {
   name: string;
@@ -21,7 +22,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <div
-      className="card-scene flex-shrink-0 cursor-pointer rounded-xs"
+      className="card-scene shrink-0 cursor-pointer rounded-xs"
       style={{ aspectRatio: "1/1", width: "clamp(220px, 28vw, 380px)" }}
     >
       <a
@@ -42,37 +43,14 @@ export default function ProjectCard({
             }}
           >
             <div>
-              <span
-                className="text-xs tracking-widest uppercase text-orange-light"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                }}
-              >
-                {tag}
-              </span>
+              <ProjectTags tag={tag} />
             </div>
             <div>
-              <h3
-                className="text-2xl leading-tight mb-2 text-white"
-                style={{
-                  fontFamily: "var(--font-redaction)",
-                }}
-              >
+              <h3 className="text-2xl leading-tight mb-2 text-white font-medium">
                 {name}
               </h3>
-              <span
-                className="text-xs text-orange"
-                style={{
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                {year}
-              </span>
+              <span className="text-xs text-orange font-mono">{year}</span>
             </div>
-            {/* <div
-              className="absolute top-4 right-4 w-8 h-8 rounded-full"
-              style={{ background: "var(--pink)", opacity: 0.4 }}
-            /> */}
           </div>
 
           {/* Back */}

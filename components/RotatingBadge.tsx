@@ -32,7 +32,7 @@ export default function RotatingBadge() {
               textAnchor="middle"
               dominantBaseline="middle"
               transform={`rotate(${rot}, ${x}, ${y})`}
-              className="font-mono text-[9px] font-normal tracking-[0.05em] fill-white/85"
+              className="font-mono text-[9px] font-normal tracking-wider fill-white/85"
             >
               {ch}
             </text>

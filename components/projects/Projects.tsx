@@ -14,7 +14,7 @@ const projects = [
   {
     name: "Boeing Safety Experience",
     year: "2024 - Ongoing",
-    tag: "Data Visualisation, Knowledge Graph",
+    tag: "Data Visualisation, Knowledge Graph, ThreeJS",
     imageSrc: "/images/timeline.webp",
     imageAlt: "Boeing Safety Experience project",
     projectUrl: "https://www.boeing.com/safety/safetyexperience",
@@ -22,7 +22,7 @@ const projects = [
   {
     name: "Pollen Passport",
     year: "2025",
-    tag: "Data Visualisation, Campaign",
+    tag: "Data Visualisation, Campaign, ThreeJS, API",
     imageSrc: "/images/pollenpassport.webp",
     imageAlt: "Pollen Passport project",
     projectUrl: "https://www.cleverfranke.com/project/allevia-pollen-passport",

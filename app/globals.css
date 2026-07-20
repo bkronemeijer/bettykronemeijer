@@ -1,89 +1,183 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap");
-@import "../styles/fonts.css";
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,700;1,400&family=Ubuntu:wght@300;400;500&display=swap")
+layer(base);
+@import "tailwindcss";
+@import "../styles/fonts.css" layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --animate-spin-badge: spinBadge 18s linear infinite;
+  --animate-drift-a: drift-a 18s ease-in-out infinite;
+  --animate-drift-b: drift-b 22s ease-in-out infinite;
+  --animate-drift-c: drift-c 26s ease-in-out infinite;
 
-:root {
-  --pink: #ffa3ca;
-  --red: #d31412;
-  --green-dark: #285d3f;
-  --green-light: #7bbcb0;
-  --primary-blue: #00f;
-  --orange: #ffb347;
-  --orange-light: #ffcc99;
-  --cream: #f5f0e8;
-  --font-display: "Playfair Display", serif;
-  --font-body: "DM Mono", monospace;
+  --color-pink: #ffa3ca;
+  --color-red: #d31412;
+  --color-green-dark: #285d3f;
+  --color-green-light: #7bbcb0;
+  --color-primary-blue: #00f;
+  --color-orange: #ffb347;
+  --color-orange-light: #ffcc99;
+  --color-cream: #f5f0e8;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mersad: Mersad, sans-serif;
+  --font-redaction: Redaction, sans-serif;
+  --font-redaction-10: Redaction 10, sans-serif;
+  --font-redaction-20: Redaction 20, sans-serif;
+  --font-redaction-35: Redaction 35, sans-serif;
+  --font-redaction-50: Redaction 50, sans-serif;
+  --font-redaction-70: Redaction 70, sans-serif;
+  --font-redaction-100: Redaction 100, sans-serif;
+
+  @keyframes spinBadge {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes drift-a {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(20vw, 10vh) scale(1.15);
+    }
+    66% {
+      transform: translate(10vw, 25vh) scale(0.9);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+  @keyframes drift-b {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(-15vw, -15vh) scale(1.1);
+    }
+    66% {
+      transform: translate(-25vw, 5vh) scale(0.95);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
+  @keyframes drift-c {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-20vw, 15vh) scale(1.2);
+    }
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+  }
 }
 
-* {
-  box-sizing: border-box;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--cream);
-  color: var(--primary-blue);
-  font-family: var(--font-body);
-  font-weight: 300;
-}
-
-/* Card flip styles */
-.card-scene {
-  perspective: 1000px;
-  border-radius: 20px;
-}
-
-.card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-  border-radius: 20px;
-}
-
-.card-scene:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  border-radius: 20px;
-}
-
-@layer utilities {
-  .scrollbar::-webkit-scrollbar {
+@utility scrollbar {
+  &::-webkit-scrollbar {
     width: 20px;
     height: 20px;
   }
 
-  .scrollbar::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     border-radius: 100vh;
     background: #f7f4ed;
   }
 
-  .scrollbar::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background: #e0cbcb;
     border-radius: 100vh;
     border: 3px solid #f6f7ed;
   }
 
-  .scrollbar::-webkit-scrollbar-thumb:hover {
+  &::-webkit-scrollbar-thumb:hover {
     background: #c0a0b9;
+  }
+}
+
+@layer utilities {
+  :root {
+    --pink: #ffa3ca;
+    --red: #d31412;
+    --green-dark: #285d3f;
+    --green-light: #7bbcb0;
+    --primary-blue: #00f;
+    --orange: #ffb347;
+    --orange-light: #ffcc99;
+    --cream: #f5f0e8;
+    --font-display: "Redaction", serif;
+    --font-body: "Ubuntu", sans-serif;
+    --font-mono: "DM Mono", monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--primary-blue);
+    font-family: var(--font-body);
+    font-weight: 300;
+  }
+
+  /* Card flip styles */
+  .card-scene {
+    perspective: 1000px;
+    border-radius: 20px;
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+  }
+
+  .card-scene:hover .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+    border-radius: 20px;
   }
 }
