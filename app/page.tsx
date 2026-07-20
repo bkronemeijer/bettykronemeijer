@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
 import RotatingBadge from "@/components/RotatingBadge";
+import { getIsChrome } from "@/utils/getIsChrome";
 import { getNearestRedactionFamily } from "@/utils/getRedactionFamily";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
@@ -20,6 +21,8 @@ export default function Home() {
   const [heroOpacity, setHeroOpacity] = useState(1);
   const [contentOpacity, setContentOpacity] = useState(0);
   const [heroFontFamily, setHeroFontFamily] = useState("Redaction");
+
+  const isChrome = typeof window !== "undefined" && getIsChrome();
 
   useEffect(() => {
     const heroDistance = window.innerHeight * (HERO_SCROLL / 100);
@@ -70,37 +73,39 @@ export default function Home() {
 
   return (
     <main className="relative bg-primary-blue">
-      {/* HERO OVERLAY */}
+      {/* Sketch + badge: mag geclipt worden aan viewport-randen tijdens het zoomen */}
       <div
-        className="fixed inset-0 z-50 overflow-hidden pointer-events-none"
-        style={{
-          opacity: heroOpacity,
-        }}
+        className="fixed inset-0 z-40 overflow-hidden pointer-events-none"
+        style={{ opacity: heroOpacity }}
       >
         <div
           className="absolute inset-0 will-change-transform"
-          style={{
-            transform: `scale(${scale})`,
-            transformOrigin: "50% 56%",
-          }}
+          style={{ transform: `scale(${scale})`, transformOrigin: "50% 56%" }}
         >
           <div className="absolute inset-0">
             <P5Sketch />
           </div>
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div
-              className="font-bold text-[clamp(3rem,9.5vw,10vw)] leading-none text-center text-white transition-[font-family]"
-              style={{
-                fontFamily: `"${heroFontFamily}", sans-serif`,
-              }}
-            >
-              <div>BETTY</div>
-              <div className="text-orange">KRONEMEIJER</div>
-            </div>
-          </div>
-
           <RotatingBadge />
+        </div>
+      </div>
+
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+        style={{ opacity: heroOpacity }}
+      >
+        <div
+          style={{ transform: `scale(${scale})`, transformOrigin: "50% 56%" }}
+        >
+          <div
+            className="font-bold text-[clamp(3rem,9.5vw,10vw)] text-center text-white"
+            style={{
+              fontFamily: `${isChrome ? "Mersad" : `"${heroFontFamily}"`}, sans-serif`,
+              lineHeight: 1.15,
+            }}
+          >
+            <div>BETTY</div>
+            <div className="text-orange">KRONEMEIJER</div>
+          </div>
         </div>
       </div>
 
@@ -108,18 +113,10 @@ export default function Home() {
       <div style={{ height: `${HERO_SCROLL}vh` }} />
 
       {/* Echte pagina */}
-      <div
-        className="relative z-10"
-        style={{
-          opacity: contentOpacity,
-        }}
-      >
+      <div className="relative z-10" style={{ opacity: contentOpacity }}>
         <BlobBackground />
-
         <Intro />
-
         <Projects />
-
         <Footer />
       </div>
     </main>

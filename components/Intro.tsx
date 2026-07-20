@@ -77,7 +77,7 @@ export default function Mission() {
         <Highlight index={11} isVisible={isVisible}>
           piano and guitar
         </Highlight>
-        , although I'm not sure if my neighbours would feel the same.
+        .
       </p>
     </section>
   );
