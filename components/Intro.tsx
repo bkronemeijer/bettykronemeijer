@@ -56,6 +56,28 @@ export default function Mission() {
           design and data teams
         </Highlight>{" "}
         to create exciting and performant data visualisations.
+        <br />
+        When I'm not working, I love to explore the outdoors in the shape of{" "}
+        <Highlight index={7} isVisible={isVisible}>
+          hiking
+        </Highlight>
+        ,{" "}
+        <Highlight index={8} isVisible={isVisible}>
+          surfing
+        </Highlight>{" "}
+        and{" "}
+        <Highlight index={9} isVisible={isVisible}>
+          sailing
+        </Highlight>
+        . I also do a lot of{" "}
+        <Highlight index={10} isVisible={isVisible}>
+          photography
+        </Highlight>
+        , and enjoy playing the{" "}
+        <Highlight index={11} isVisible={isVisible}>
+          piano and guitar
+        </Highlight>
+        , although I'm not sure if my neighbours would feel the same.
       </p>
     </section>
   );

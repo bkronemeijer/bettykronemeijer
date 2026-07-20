@@ -5,12 +5,14 @@ import Footer from "@/components/Footer";
 import Intro from "@/components/Intro";
 import Projects from "@/components/Projects";
 import RotatingBadge from "@/components/RotatingBadge";
+import { getNearestRedactionFamily } from "@/utils/getRedactionFamily";
 import dynamic from "next/dynamic";
 import { useEffect, useRef, useState } from "react";
 
 const P5Sketch = dynamic(() => import("../components/P5Sketch"), {
   ssr: false,
 });
+
 export default function Home() {
   const [scale, setScale] = useState(1);
   const [heroOpacity, setHeroOpacity] = useState(1);
@@ -18,6 +20,8 @@ export default function Home() {
   const [heroVisible, setHeroVisible] = useState(true);
   const contentVisible = useRef(false);
   const darknessRef = useRef(0);
+
+  const [heroFontFamily, setHeroFontFamily] = useState("Redaction");
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,10 +47,30 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    let rafId: number | null = null;
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (rafId !== null) return; // throttle to one update per frame
+
+      rafId = requestAnimationFrame(() => {
+        const percent = (e.clientX / window.innerWidth) * 100;
+        setHeroFontFamily(getNearestRedactionFamily(percent));
+        rafId = null;
+      });
+    };
+
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <main>
       <div className="relative h-[350vh]">
-        <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#00F]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden bg-primary-blue">
           {/* Zooming hero */}
           <div
             className="absolute  inset-0 will-change-transform transition-opacity duration-75 ease-linear"
@@ -62,10 +86,13 @@ export default function Home() {
             </div>
 
             {/* Text overlay */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-              <div className="font-mersad font-bold text-[clamp(3rem,9.5vw,10vw)] leading-[1] text-white text-center tracking-[0.01em] select-none">
+            <div className="absolute inset-0 flex flex-col items-center mx-4 justify-center pointer-events-none z-10">
+              <div
+                className="font-bold text-[clamp(3rem,9.5vw,10vw)] leading-[1] mx-4 text-white text-center tracking-[0.01em] select-none transition-[font-family] duration-150"
+                style={{ fontFamily: `"${heroFontFamily}", sans-serif` }}
+              >
                 <div>BETTY</div>
-                <div className="text-[#ffb347]">KRONEMEIJER</div>
+                <div className="text-orange">KRONEMEIJER</div>
               </div>
             </div>
 
