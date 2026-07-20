@@ -37,7 +37,7 @@ export default function Home() {
 
       setHeroOpacity(hero);
 
-      const content = Math.max(0, Math.min((progress - 0.82) / 0.18, 1));
+      const content = Math.max(0, Math.min((progress - 0.65) / 0.18, 1));
 
       setContentOpacity(content);
     };
