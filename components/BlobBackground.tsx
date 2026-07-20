@@ -24,7 +24,7 @@ export default function BlobBackground({ className = "" }) {
       aria-hidden="true"
     >
       <span
-        className="absolute rounded-full blur-[60px] opacity-75 mix-blend-screen will-change-transform motion-reduce:animate-none w-[45vmax] h-[45vmax] top-[-10%] left-[-10%] animate-drift-a"
+        className="absolute rounded-full blur-[60px] opacity-75 mix-blend-screen will-change-transform motion-reduce:animate-none w-[45vmax] h-[45vmax] top-[5%] left-[-10%] animate-drift-a"
         style={{
           background:
             "radial-gradient(circle at 30% 30%, #ffcc99, transparent 70%)",
