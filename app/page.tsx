@@ -21,8 +21,11 @@ export default function Home() {
   const [heroOpacity, setHeroOpacity] = useState(1);
   const [contentOpacity, setContentOpacity] = useState(0);
   const [heroFontFamily, setHeroFontFamily] = useState("Redaction");
+  const [isChrome, setIsChrome] = useState(false);
 
-  const isChrome = typeof window !== "undefined" && getIsChrome();
+  useEffect(() => {
+    setIsChrome(getIsChrome());
+  }, []);
 
   useEffect(() => {
     const heroDistance = window.innerHeight * (HERO_SCROLL / 100);
