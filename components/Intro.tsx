@@ -22,7 +22,7 @@ export default function Mission() {
   }, []);
 
   return (
-    <section id="mission" title="Our Mission">
+    <section>
       <p
         ref={textRef}
         className={`max-w-[85%] lg:max-w-[75%] text-xs md:text-xl lg:text-2xl leading-relaxed text-white transition-all duration-700 2xl:text-4xl p-8 ${
@@ -57,24 +57,28 @@ export default function Mission() {
         </Highlight>{" "}
         to create exciting and performant data visualisations.
         <br />
-        When I'm not working, I love to explore the outdoors in the shape of{" "}
+        When I'm not working, I play{" "}
         <Highlight index={7} isVisible={isVisible}>
+          beachvolleyball
+        </Highlight>{" "}
+        and love to explore the outdoors in the form of{" "}
+        <Highlight index={8} isVisible={isVisible}>
           hiking
         </Highlight>
         ,{" "}
-        <Highlight index={8} isVisible={isVisible}>
+        <Highlight index={9} isVisible={isVisible}>
           surfing
         </Highlight>{" "}
         and{" "}
-        <Highlight index={9} isVisible={isVisible}>
+        <Highlight index={10} isVisible={isVisible}>
           sailing
         </Highlight>
         . I also do a lot of{" "}
-        <Highlight index={10} isVisible={isVisible}>
+        <Highlight index={11} isVisible={isVisible}>
           photography
         </Highlight>
         , and enjoy playing the{" "}
-        <Highlight index={11} isVisible={isVisible}>
+        <Highlight index={12} isVisible={isVisible}>
           piano and guitar
         </Highlight>
         .
@@ -144,7 +148,7 @@ const Highlight = ({
 
   return (
     <span
-      className="inline-block rounded px-1 font-semibold text-white transition-all duration-500 ease-out"
+      className="inline-block rounded-sm px-1 font-semibold text-white transition-all duration-500 ease-out"
       style={{
         backgroundImage:
           "linear-gradient(to right, rgba(255, 179, 71, 1.0), rgba(255, 179, 71, 1.0))",
