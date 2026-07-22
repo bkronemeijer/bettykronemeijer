@@ -27,21 +27,21 @@ export default function BlobBackground({ className = "" }) {
         className="absolute rounded-full blur-[60px] opacity-75 mix-blend-screen will-change-transform motion-reduce:animate-none w-[45vmax] h-[45vmax] top-[5%] left-[-10%] animate-drift-a"
         style={{
           background:
-            "radial-gradient(circle at 30% 30%, var(--color-orange-light), transparent 70%)",
+            "radial-gradient(circle at 30% 30%, var(--color-secondary-light), transparent 70%)",
         }}
       />
       <span
         className="absolute rounded-full blur-[60px] opacity-75 mix-blend-screen will-change-transform motion-reduce:animate-none w-[38vmax] h-[38vmax] bottom-[-15%] right-[-10%] animate-drift-b"
         style={{
           background:
-            "radial-gradient(circle at 60% 40%, var(--color-orange), transparent 70%)",
+            "radial-gradient(circle at 60% 40%, var(--color-secondary), transparent 70%)",
         }}
       />
       <span
         className="absolute rounded-full blur-[60px] opacity-75 mix-blend-screen will-change-transform motion-reduce:animate-none w-[30vmax] h-[30vmax] top-[30%] left-[40%] animate-drift-c"
         style={{
           background:
-            "radial-gradient(circle at 50% 50%, var(--color-blue-light), transparent 70%)",
+            "radial-gradient(circle at 50% 50%, var(--color-primary-light), transparent 70%)",
         }}
       />
     </div>

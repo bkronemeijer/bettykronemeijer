@@ -31,7 +31,7 @@ export default function P5Sketch() {
 
         const readBgColor = () => {
           const raw = getComputedStyle(document.documentElement)
-            .getPropertyValue("--color-blue-primary")
+            .getPropertyValue("--color-primary")
             .trim();
           bgColor = s.color(raw);
         };

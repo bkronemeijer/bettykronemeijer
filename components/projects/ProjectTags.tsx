@@ -12,7 +12,7 @@ export default function ProjectTags({ tag }: ProjectTagProps) {
       {tags.map((t) => (
         <span
           key={t}
-          className="bg-orange px-2 rounded-xs bg-opacity-50 text-white text-xs md:text-sm"
+          className="bg-secondary px-2 rounded-xs bg-opacity-50 text-white text-xs md:text-sm"
         >
           {t}
         </span>

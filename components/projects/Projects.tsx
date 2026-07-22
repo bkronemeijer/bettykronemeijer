@@ -42,14 +42,14 @@ export default function Projects() {
     <section id="work" className="lg:py-16">
       <div className="p-5 md:px-8 md:mb-8 flex items-baseline gap-4">
         <h2
-          className="text-xs tracking-widest uppercase text-orange"
+          className="text-xs tracking-widest uppercase text-secondary"
           style={{
             fontFamily: "var(--font-body)",
           }}
         >
           Selected Work
         </h2>
-        <div className="flex-1 h-px bg-orange opacity-[0.12]" />
+        <div className="flex-1 h-px bg-secondary opacity-[0.12]" />
       </div>
 
       <div

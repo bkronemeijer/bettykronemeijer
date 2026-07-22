@@ -1,4 +1,5 @@
 import p5 from "p5";
+import { generateTints, getCssColor } from "./colorUtils";
 
 export class Boid {
   p: p5;
@@ -74,14 +75,8 @@ export class Boid {
   }
 
   getColor() {
-    const palette = [
-      this.p.color(10, 34, 199), // #0A22C7
-      this.p.color(51, 76, 211), // #334CD3
-      this.p.color(98, 117, 222), // #6275DE
-      this.p.color(142, 155, 233), // #8E9BE9
-      this.p.color(185, 194, 244), // #B9C2F4
-      this.p.color(231, 235, 253), // #E7EBFD
-    ];
+    const baseColor = getCssColor("--color-primary");
+    const palette = generateTints(this.p, baseColor, 6);
 
     return this.p.random(palette);
   }

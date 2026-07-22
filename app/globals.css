@@ -13,10 +13,10 @@ layer(base);
   --color-red: #d31412;
   --color-green-dark: #285d3f;
   --color-green-light: #7bbcb0;
-  --color-blue-primary: #00f;
-  --color-blue-light: #90d5ff;
-  --color-orange: #ffb347;
-  --color-orange-light: #ffcc99;
+  --color-primary: #00f;
+  --color-primary-light: #90d5ff;
+  --color-secondary: #ffb347;
+  --color-secondary-light: #ffcc99;
   --color-cream: #f5f0e8;
   --color-white: #fefefe;
 
@@ -101,8 +101,8 @@ layer(base);
   }
 
   body {
-    background-color: var(--color-blue-primary);
-    color: var(--color-blue-primary);
+    background-color: var(--color-primary);
+    color: var(--color-primary);
     font-family: var(--font-body);
     font-weight: 300;
   }

@@ -64,7 +64,7 @@ export const Highlight = ({
       className="inline-block rounded-sm px-1 font-semibold text-white transition-all duration-500 ease-out"
       style={{
         backgroundImage:
-          "linear-gradient(to right, var(--color-orange), var(--color-orange))",
+          "linear-gradient(to right, var(--color-secondary), var(--color-secondary))",
         backgroundPosition: "0% center",
         backgroundSize: revealed ? "100% 100%" : "0% 100%",
         backgroundRepeat: "no-repeat",

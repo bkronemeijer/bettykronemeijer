@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="p-5 md:px-8 py-12 mt-16 flex justify-between text-xs text-orange-light">
+    <footer className="p-5 md:px-8 py-12 mt-16 flex justify-between text-xs text-secondary">
       <p>© {new Date().getFullYear()} Betty Kronemeijer</p>
       <p className="flex gap-4">
         <a

@@ -38,7 +38,6 @@ export default function ProjectCard({
             style={{
               background: "rgba(255, 255, 255, 0.42)",
               borderRadius: "16px",
-              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
               backdropFilter: "blur(10.2px)",
             }}
           >
@@ -49,7 +48,9 @@ export default function ProjectCard({
               <h3 className="text-xl md:text-2xl leading-tight mb-2 text-white font-medium">
                 {name}
               </h3>
-              <span className="text-xs text-orange font-mono">{year}</span>
+              <span className="text-xs text-secondary-light font-mono">
+                {year}
+              </span>
             </div>
           </div>
 
@@ -66,7 +67,7 @@ export default function ProjectCard({
                 className="absolute inset-0 flex items-end p-4 rounded-xs"
                 style={{
                   background:
-                    "linear-gradient(to top, var(--blue-primary) 0%, transparent 60%)",
+                    "linear-gradient(to top, var(--color-primary) 0%, transparent 60%)",
                 }}
               >
                 <span
