@@ -66,7 +66,7 @@ export default function ProjectCard({
                 className="absolute inset-0 flex items-end p-4 rounded-xs"
                 style={{
                   background:
-                    "linear-gradient(to top, rgba(0, 0, 256, 1.0) 0%, transparent 60%)",
+                    "linear-gradient(to top, var(--blue-primary) 0%, transparent 60%)",
                 }}
               >
                 <span

@@ -17,6 +17,7 @@ export default function P5Sketch() {
 
     let p5Instance: any = null;
     let flock: Flock = new Flock();
+    let observer: MutationObserver | null = null;
 
     import("p5").then((mod) => {
       const p5 = mod.default;
@@ -25,6 +26,15 @@ export default function P5Sketch() {
         // ── Gradient animation state ──────────────────────────────────────
         let grainCanvas: HTMLCanvasElement | null = null;
         let grainCtx: CanvasRenderingContext2D | null = null;
+
+        let bgColor: any = null;
+
+        const readBgColor = () => {
+          const raw = getComputedStyle(document.documentElement)
+            .getPropertyValue("--color-blue-primary")
+            .trim();
+          bgColor = s.color(raw);
+        };
 
         // ── Build static grain texture once ──────────────────────────────
         const buildGrain = (W: number, H: number) => {
@@ -51,6 +61,14 @@ export default function P5Sketch() {
           const cvs = s.createCanvas(W, H);
           cvs.parent(containerRef.current);
 
+          readBgColor();
+
+          observer = new MutationObserver(readBgColor);
+          observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["style"],
+          });
+
           for (let i = 0; i < 100; i++) {
             flock.addBoid(new Boid(s, s.width / 2, s.height / 2));
           }
@@ -67,7 +85,7 @@ export default function P5Sketch() {
 
         // ── Draw ──────────────────────────────────────────────────────────
         s.draw = () => {
-          s.background(0, 0, 256);
+          s.background(bgColor);
           // for (let i = 0; i < num; i++) {
           //   balls[i].update();
           //   balls[i].display();
@@ -82,6 +100,7 @@ export default function P5Sketch() {
     });
 
     return () => {
+      observer?.disconnect();
       p5Instance?.remove();
       if (containerRef.current) containerRef.current.innerHTML = "";
       mountedRef.current = false;
@@ -94,7 +113,7 @@ export default function P5Sketch() {
       style={{
         width: "100%",
         height: "100%",
-        background: "#00F",
+        background: "var(--color-primary-blue)",
       }}
     />
   );

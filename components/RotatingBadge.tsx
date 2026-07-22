@@ -44,7 +44,7 @@ export default function RotatingBadge() {
           cy={radius + 20}
           r={18}
           fill="none"
-          stroke="rgba(255, 179, 71, 1.0)"
+          stroke="var(--color-orange)"
           strokeWidth="1"
         />
       </svg>

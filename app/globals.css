@@ -13,13 +13,16 @@ layer(base);
   --color-red: #d31412;
   --color-green-dark: #285d3f;
   --color-green-light: #7bbcb0;
-  --color-primary-blue: #00f;
+  --color-blue-primary: #00f;
+  --color-blue-light: #90d5ff;
   --color-orange: #ffb347;
   --color-orange-light: #ffcc99;
   --color-cream: #f5f0e8;
+  --color-white: #fefefe;
 
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
+  --font-display: "Redaction", serif;
+  --font-body: "Ubuntu", sans-serif;
+  --font-mono: "DM Mono", monospace;
   --font-mersad: Mersad, sans-serif;
   --font-redaction: Redaction, sans-serif;
   --font-redaction-10: Redaction 10, sans-serif;
@@ -78,14 +81,6 @@ layer(base);
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -97,20 +92,6 @@ layer(base);
 }
 
 @layer utilities {
-  :root {
-    --pink: #ffa3ca;
-    --red: #d31412;
-    --green-dark: #285d3f;
-    --green-light: #7bbcb0;
-    --primary-blue: #00f;
-    --orange: #ffb347;
-    --orange-light: #ffcc99;
-    --cream: #f5f0e8;
-    --font-display: "Redaction", serif;
-    --font-body: "Ubuntu", sans-serif;
-    --font-mono: "DM Mono", monospace;
-  }
-
   * {
     box-sizing: border-box;
   }
@@ -120,13 +101,12 @@ layer(base);
   }
 
   body {
-    background-color: var(--primary-blue);
-    color: var(--primary-blue);
+    background-color: var(--color-blue-primary);
+    color: var(--color-blue-primary);
     font-family: var(--font-body);
     font-weight: 300;
   }
 
-  /* Card flip styles */
   .card-scene {
     perspective: 1000px;
     border-radius: 20px;

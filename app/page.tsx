@@ -75,7 +75,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="relative bg-primary-blue">
+    <main className="relative bg-blue-primary">
       {/* Sketch + badge: mag geclipt worden aan viewport-randen tijdens het zoomen */}
       <div
         className="fixed inset-0 z-40 overflow-hidden pointer-events-none"
